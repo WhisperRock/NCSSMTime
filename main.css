@@ -1,0 +1,276 @@
+:root {
+    --light: #fff;
+    --dark: #000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    color: var(--light);
+    /*background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url(assets/durham-bg.jpg), lightgray 50%;*/
+    background-image: url(assets/durham-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 80%;
+    height: 100dvh;
+    padding: 10dvh 0;
+    overflow-y: hidden;
+    margin: auto;
+    font-family: "Lato", sans-serif;
+    transition: background-image 0.25s ease-in-out;
+}
+
+body.morganton
+{
+  /*background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url(assets/morganton-bg.jpg), lightgray 50%;*/
+  background-image: url("assets/morganton-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+div.campus-switch {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+div.campus-switch p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 28px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 0 3px var(--light);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(28px);
+    -ms-transform: translateX(28px);
+    transform: translateX(28px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .time-details {
+    display: none;
+  }
+
+
+  main {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-times {
+    align-self: center;
+  }
+
+  .main-times h4 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 32px;
+    margin: 0;
+  }
+
+  .main-times h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 112px;
+    display: block;
+    margin: 0;
+    margin-top: -16px;
+  }
+
+  .main-times h1 span.sub-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    display: block;
+    margin-top: -12px;
+  }
+
+  .main-times h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 54px;
+    margin: 0;
+    display: block;
+    margin-top: 46px;
+  }
+
+  .main-times h2 span.sub-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    margin: 0;
+    display: block;
+  }
+
+  .timeline {
+    margin-top: -5%;
+    position: relative;
+    height: 100%;
+    width: 256px;
+  }
+  
+  /* The actual timeline (the vertical ruler) */
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--light);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+  }
+
+
+/* Container around content */
+.container {
+  position: relative;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.dot {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 50%;
+  margin-left: -12.5px;
+  background-color: var(--light);
+  top: 50%; /* Percentage down the timeline */
+  margin-top: -12.5px;
+  border-radius: 50%;
+  z-index: 1;
+  transition: top 0.5s ease-in-out;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+  text-align: right;
+  height: 100%;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+  text-align: left;
+  height: 100%;
+  top: -100%;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  position: absolute;
+  margin-top: -40px;
+  transition: top 0.5s ease-in-out;
+}
+
+.right .content {
+  transition-delay: 200ms;
+}
+
+.content h5 {
+  font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+}
+
+.content p {
+  font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.content#sunrise {
+  top: 5%; /* Percentage down the timeline */
+}
+.content#sunset {
+  top: 65%; /* Percentage down the timeline */
+}
+
+.content#breakfast {
+  top: 10%; /* Percentage down the timeline */
+}
+.content#lunch {
+  top: 35%; /* Percentage down the timeline */
+}
+.content#dinner {
+  top: 60%; /* Percentage down the timeline */
+}
+.content#check {
+  top: 95%; /* Percentage down the timeline */
+}
+

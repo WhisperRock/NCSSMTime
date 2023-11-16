@@ -3,81 +3,82 @@
 
 <head>
     <title id="title">NCSSM Time</title>
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
     <meta property="description" value="NCSSM Time is a web timer for how much time remains in the current NCSSM class period.">
     <meta property="og:title" value="NCSSM Time">
     <meta property="og:description" value="A web timer for how much time remains in the current NCSSM class period.">
 
-    <style>
-         :root {
-            --usr-clr: #3080ff;
-            --usr-bg: #242424;
-        }
-        
-        h1 {
-            font-family: monospace;
-        }
-        
-        #header {
-            color: var(--usr-clr);
-            text-align: center;
-        }
-        
-        html {
-            color: var(--usr-clr);
-            background-color: var(--usr-bg);
-        }
-    </style>
-
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Main Page Text Setup -->
-    <p id="banner" style="font-family: monospace; position: absolute; top: 0.5vw; padding: 0; margin: 0; left: 35vw; width: 30vw; font-size: 3vmax; text-align: center; color: #8cb8ff;">
-        Loading...
-    </p>
-
     <!-- Morganton checkbox -->
-    <div style="font-family: monospace; padding: 0; margin: 0;">
-        <input type="checkbox" id="mor" style="position: absolute; width: 1vmax; height: 1vmax; top: 1.25vmax; left: 1vmax;">
-        <label for="mor" style="position: absolute; font-size: 2vmax; left: 3vmax; top: 0.75vmax; color: #8cb8ff;">Morganton</label>
+    <div class="campus-switch">
+        <p class="label">Durham</p>
+        <label class="switch">
+            <input type="checkbox" id="mor">
+            <span class="slider round"></span>
+        </label>
+        <p class="label">Morganton</p>
     </div>
 
-    <script src="cookies.js"></script>
+    <!-- Main Page Text Setup -->
+    <main>
+        <div class="main-times">
+            <h4 id="banner">Loading...</h4>
+            <h1 id="txt">Loading...</h1>
+            <h2 id="txt2">Loading...</h2>
+        </div>
+    
+        <div class="time-details">
+    
+            <p id="cafe-mf"></p>
+        
+            <p id="cafe-ss"></p>
+        </div>
 
+        <div class="timeline">
+            <div class="dot" id="dot"></div>
+            <div class="container left">
+              <div class="content" id="sunrise">
+                <h5>Sunrise</h5>
+                <p>Loading..</p>
+              </div>
+              <div class="content" id="sunset">
+                <h5>Sunset</h5>
+                <p>Loading..</p>
+              </div>
+            </div>
+            <div class="container right">
+                <div class="content" id="breakfast">
+                    <h5>Breakfast</h5>
+                    <p>Loading..</p>
+                </div>
+                <div class="content" id="lunch">
+                    <h5>Lunch</h5>
+                    <p>Loading..</p>
+                </div>
+                <div class="content" id="dinner">
+                    <h5>Dinner</h5>
+                    <p>Loading..</p>
+                </div>
+                <div class="content" id="check">
+                    <h5>Check</h5>
+                    <p>Loading..</p>
+                </div>
+            </div>
+          </div>
+    </main>
+    
     <!-- Run code to determine sunrise and sunset times from API -->
     <!-- This is for people who want to go off campus! -->
-    <p id="srss" style="font-family: monospace; position: absolute; padding: 0; margin: 0; line-height: 0.1vw; left: 0.5vmax; bottom: 0; width: 25vmax; font-size: 1.25vmax; text-align: left; color: #8cb8ff;"></p>
-
-    <script src="srssapi.js"></script>
-
     <!-- Run code to determine cafeteria hours & display it as text -->
-    <p id="cafe-mf" style="font-family: monospace; position: absolute; padding: 0; margin: 0.5vmax; right: 0; bottom: 0; font-size: 1.25vmax; text-align: center; color: #8cb8ff;"></p>
-
-    <p id="cafe-ss" style="font-family: monospace; position: absolute; padding: 0; margin: 0.5vmax; right: 0; bottom: 0; font-size: 1.25vmax; text-align: center; color: #8cb8ff;"></p>
-
-    <script src="cafe.js"></script>
-
-    <!-- Links to subpages -->
-    <a href="schedule" style="font-family: monospace; top: 0; right: 0.5vmax; font-size: 3vmax; position: absolute; color: var(--usr-clr);">
-        Schedule
-    </a>
-
-    <a href="about" style="font-family: monospace; top: 3vmax; right: 0.5vmax; font-size: 3vmax; position: absolute; color: var(--usr-clr);">
-        About
-    </a>
-
-    <!-- Placeholder text for when code is not working -->
-    <div id="main">
-        <p id="txt" style="margin: 0; font-family: monospace; font-weight: bold; left:0; position: absolute; top: 25vh; font-size: 8vmax; width: 100vw; text-align: center;">Loading...</p>
-    </div>
-    
-    <div id="main2">
-        <p id="txt2" style="margin: 0; font-family: monospace; left:0; position: absolute; top: 65vh; font-size: 4vmax; width: 100vw; text-align: center;"></p>
-    </div>
-    
     <!--After everything, run script to actually determine countdown -->
+    <script src="srssapi.js"></script>
     <script src="classtime.js"></script>
+    <script src="cookies.js"></script>
+    <script src="schoolEvents.js"></script>
 </body>
 
 </html>

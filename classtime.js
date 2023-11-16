@@ -58,7 +58,7 @@ function updateSchedule() {
 
         timeString2 = `${(labHours === 0 ? "" : labHours.toString() + ":")}${labMinutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-        document.getElementById("txt2").innerText = `${timeString2} left of ${eventStr.substring(3,5)} only`;
+        document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of ${eventStr.substring(3,5)} only</span>`;
     }
     else if (eventStr.includes("Lunch") && !mod) { // countdown during lunch for after lunch lab
         labMinutes = minutes + (labBlock - regBlock);
@@ -71,13 +71,13 @@ function updateSchedule() {
         timeString2 = `${(labHours === 0 ? "" : labHours.toString() + ":")}${labMinutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         
         if (dayOfWeek(currentTime.getDay()) === "Tuesday")
-            document.getElementById("txt2").innerText = `${timeString2} left of Lunch for G2 only`;
+            document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of Lunch for G2 only</span>`;
 
         if (dayOfWeek(currentTime.getDay()) === "Wednesday")
-            document.getElementById("txt2").innerText = `${timeString2} left of Lunch for E3 only`;
+            document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of Lunch for E3 only</span>`;
 
         if (dayOfWeek(currentTime.getDay()) === "Thursday")
-            document.getElementById("txt2").innerText = `${timeString2} left of Lunch for F4 only`;
+            document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of Lunch for F4 only</span>`;
     }
     else if (eventStr.includes("Lunch") && mod) { // modified lab timer for lunch
         labMinutes = minutes + (labBlock - regBlock);
@@ -89,7 +89,7 @@ function updateSchedule() {
 
         timeString2 = `${(labHours === 0 ? "" : labHours.toString() + ":")}${labMinutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-        document.getElementById("txt2").innerText = ``; // MODIFY BASED ON DAY OF WEEK, delete if needed
+        document.getElementById("txt2").innerHTML = ``; // MODIFY BASED ON DAY OF WEEK, delete if needed
     }
     else if ((hours * 60 + minutes) >= regBlock && eventStr.substring(6, 9) === "Lab") { // if lab block comes before main block (only after lunch)
         labMinutes = minutes - regBlock;
@@ -102,7 +102,7 @@ function updateSchedule() {
 
         timeString2 = `${(labHours === 0 ? "" : labHours.toString() + ":")}${labMinutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-        document.getElementById("txt2").innerText = `${timeString2} left of Lunch for ${eventStr.substring(3,5)} only`;
+        document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of Lunch for ${eventStr.substring(3,5)} only</span>`;
     }
     else if (eventStr.includes("before H") || eventStr.includes("of H") || eventStr.includes("Transition (H") || eventStr.includes("of I")) { // before check timer (completely separate)
         let hrsBeforeCheck = 0;
@@ -132,22 +132,22 @@ function updateSchedule() {
 
         timeString2 = `${(hrsBeforeCheck === 0 ? "" : hrsBeforeCheck.toString() + ":")}${minBeforeCheck.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-        document.getElementById("txt2").innerText = `${timeString2} left before Check`;
+        document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left before Check</span>`;
     }
     else { // turn off the text
-        document.getElementById("txt2").innerText = "";
+        document.getElementById("txt2").innerHTML = "";
     }
 
-    document.getElementById("txt").innerText = `${timeString} left ${nextEvent.name}`; // countdown text that replaces "Loading..."
+    document.getElementById("txt").innerHTML = `${timeString}<br><span class="sub-text">Left ${nextEvent.name}</span>`; // countdown text that replaces "Loading..."
     
     if (pageTitle !== timeString) { // tab timer
         if (eventStr.includes("Transition")) {
-            document.title = `${timeString} *TRANSITION*`;
-            pageTitle = `${timeString} *TRANSITION*`;
+            document.title = `Transition: ${timeString}`;
+            pageTitle = `Transition: ${timeString}`;
         }
         else if (eventStr.includes("of Check")) {
-            document.title = `${timeString} *CHECK*`;
-            pageTitle = `${timeString} *CHECK*`;
+            document.title = `Check: ${timeString}`;
+            pageTitle = `Check: ${timeString}`;
         }
         else {
             document.title = timeString;
@@ -162,13 +162,13 @@ function getNextEvent(dateTime) { // finds the next event
     updateTimeMap(currentTime);
 
     let day = dayOfWeek(currentTime.getDay());
-    if (document.getElementById("banner").innerText != `Today is ${day}` && !mod) // updating the day of week banner on the top of main page
-        document.getElementById("banner").innerText = `Today is ${day}`;
+    if (document.getElementById("banner").innerText != day && !mod) // updating the day of week banner on the top of main page
+        document.getElementById("banner").innerText = day;
 
     let events;
     if (mod) { // override
         events = scheduleMap.get("Modified");
-        document.getElementById("banner").innerText = `Today is ${day} (AMC-12 Schedule)`; // MODIFY, delete if needed
+        document.getElementById("banner").innerText = `${day} (AMC-12 Schedule)`; // MODIFY, delete if needed
     }
     else {
         events = scheduleMap.get(day);
