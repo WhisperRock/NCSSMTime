@@ -78,6 +78,9 @@ function updateSchedule() {
 
         if (dayOfWeek(currentTime.getDay()) === "Thursday")
             document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of Lunch for F4 only</span>`;
+
+        else
+            document.getElementById("txt2").innerHTML = ``;
     }
     else if (eventStr.includes("Lunch") && mod) { // modified lab timer for lunch
         labMinutes = minutes + (labBlock - regBlock);
@@ -135,7 +138,7 @@ function updateSchedule() {
         document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left before Check</span>`;
     }
     else { // turn off the text
-        document.getElementById("txt2").innerHTML = "";
+        document.getElementById("txt2").innerHTML = `<br><span class="sub-text"></span>`;
     }
 
     document.getElementById("txt").innerHTML = `${timeString}<br><span class="sub-text">Left ${nextEvent.name}</span>`; // countdown text that replaces "Loading..."
@@ -168,7 +171,7 @@ function getNextEvent(dateTime) { // finds the next event
     let events;
     if (mod) { // override
         events = scheduleMap.get("Modified");
-        document.getElementById("banner").innerText = `${day} (AMC-12 Schedule)`; // MODIFY, delete if needed
+        document.getElementById("banner").innerText = `Have a great Thanksgiving Break!`; // MODIFY, delete if needed
     }
     else {
         events = scheduleMap.get(day);
@@ -187,8 +190,8 @@ function updateTimeMap(currentTime) { // the actual code
     let month = currentTime.getMonth();
     let day = currentTime.getDate();
     scheduleMap.set("Modified", [{
-            date: new Date(year, month, day, 8, 30),
-            name: "before B3"
+            date: new Date(year, 10, 27, 8, 30),
+            name: "before A1"
         }
     ]);
     scheduleMap.set("Monday", [{
