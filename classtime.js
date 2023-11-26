@@ -1,7 +1,7 @@
 let pageTitle = "";
 let scheduleMap = new Map();
 
-let mod = true;
+let mod = false;
 /*
 PROCEDURE
 On modified schedules, change mod to true above
