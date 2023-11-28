@@ -73,10 +73,10 @@ function updateSchedule() {
         if (dayOfWeek(currentTime.getDay()) === "Tuesday")
             document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of Lunch for G2 only</span>`;
 
-        if (dayOfWeek(currentTime.getDay()) === "Wednesday")
+        else if (dayOfWeek(currentTime.getDay()) === "Wednesday")
             document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of Lunch for E3 only</span>`;
 
-        if (dayOfWeek(currentTime.getDay()) === "Thursday")
+        else if (dayOfWeek(currentTime.getDay()) === "Thursday")
             document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left of Lunch for F4 only</span>`;
 
         else
