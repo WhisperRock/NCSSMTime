@@ -138,7 +138,8 @@ function updateSchedule() {
         document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left before Check</span>`;
     }
     else { // turn off the text
-        document.getElementById("txt2").innerHTML = `<span class="sub-text">See Final Exam Schedule</span>`;
+        document.getElementById("txt2").innerHTML = `<a href="https://docs.google.com/document/d/1ckqKSNM3A98phR4JNh816zW70jwxQjih2C1IwgWKsR0/edit" target="_blank" class="sub-text" style="color: white; font-size: 32px;">Exam Schedule and Rooms</a>`;
+
     }
 
     document.getElementById("txt").innerHTML = `${timeString}<br><span class="sub-text">Left ${nextEvent.name}</span>`; // countdown text that replaces "Loading..."
