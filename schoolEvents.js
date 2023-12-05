@@ -118,21 +118,19 @@ function convertTimeToPercentage(timeString) {
     const percentage = Math.min(Math.max(((totalMinutes - startMinutes) / (endMinutes - startMinutes)) * 100, 0), 100);
   
     return percentage.toFixed(2) + "%";
-  }
+}
 
-  function getCurrentTime() {
+function getCurrentTime() {
     const now = new Date();
-  
+
     let hours = now.getHours();
     const minutes = now.getMinutes();
     const period = hours >= 12 ? "PM" : "AM";
-  
+
     // Convert hours to 12-hour format
     hours = hours % 12 || 12;
-  
+
     const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${period}`;
-  
+
     return formattedTime;
-  }
-  
-  
+}
