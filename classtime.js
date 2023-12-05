@@ -1,7 +1,7 @@
 let pageTitle = "";
 let scheduleMap = new Map();
 
-let mod = false;
+let mod = true;
 /*
 PROCEDURE
 On modified schedules, change mod to true above
@@ -42,7 +42,7 @@ function updateSchedule() {
     let labBlock = 90;
 
     if (mod) { // MODIFY if needed
-        regBlock = 30;
+        regBlock = 50;
         labBlock = 90;
     }
     
@@ -82,7 +82,7 @@ function updateSchedule() {
         else
             document.getElementById("txt2").innerHTML = ``;
     }
-    else if (eventStr.includes("Lunch") && mod) { // modified lab timer for lunch
+    /*else if (eventStr.includes("Lunch") && mod) { // modified lab timer for lunch
         labMinutes = minutes + (labBlock - regBlock);
         
         if (labMinutes >= 60) {
@@ -93,7 +93,7 @@ function updateSchedule() {
         timeString2 = `${(labHours === 0 ? "" : labHours.toString() + ":")}${labMinutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
         document.getElementById("txt2").innerHTML = ``; // MODIFY BASED ON DAY OF WEEK, delete if needed
-    }
+    }*/
     else if ((hours * 60 + minutes) >= regBlock && eventStr.substring(6, 9) === "Lab") { // if lab block comes before main block (only after lunch)
         labMinutes = minutes - regBlock;
         labHours = hours;
@@ -138,7 +138,7 @@ function updateSchedule() {
         document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left before Check</span>`;
     }
     else { // turn off the text
-        document.getElementById("txt2").innerHTML = ``;
+        document.getElementById("txt2").innerHTML = `<span class="sub-text">See Final Exam Schedule</span>`;
     }
 
     document.getElementById("txt").innerHTML = `${timeString}<br><span class="sub-text">Left ${nextEvent.name}</span>`; // countdown text that replaces "Loading..."
@@ -171,7 +171,7 @@ function getNextEvent(dateTime) { // finds the next event
     let events;
     if (mod) { // override
         events = scheduleMap.get("Modified");
-        document.getElementById("banner").innerText = `Have a great Thanksgiving Break!`; // MODIFY, delete if needed
+        document.getElementById("banner").innerText = dayOfWeek(currentTime.getDay()) + ` (Exam Schedule)`; // MODIFY, delete if needed
     }
     else {
         events = scheduleMap.get(day);
@@ -190,8 +190,40 @@ function updateTimeMap(currentTime) { // the actual code
     let month = currentTime.getMonth();
     let day = currentTime.getDate();
     scheduleMap.set("Modified", [{
-            date: new Date(year, 10, 27, 8, 30),
-            name: "before A1"
+            date: new Date(year, month, day, 9, 0),
+            name: "before Morning Exam"
+        },
+        {
+            date: new Date(year, month, day, 11, 0),
+            name: "of Morning Exam"
+        },
+        {
+            date: new Date(year, month, day, 13, 30),
+            name: "of Lunch"
+        },
+        {
+            date: new Date(year, month, day, 15, 30),
+            name: "of Afternoon Exam"
+        },
+        {
+            date: new Date(year, month, day, 18, 0),
+            name: "before Evening Exam"
+        },
+        {
+            date: new Date(year, month, day, 20, 0),
+            name: "of Evening Exam"
+        },
+        {
+            date: new Date(year, month, day, 22, 0),
+            name: "before Check"
+        },
+        {
+            date: new Date(year, month, day, 22, 5),
+            name: "of Check"
+        },
+        {
+            date: new Date(year, month, day + 1, 9, 0),
+            name: "before Morning Exam"
         }
     ]);
     scheduleMap.set("Monday", [{
