@@ -207,14 +207,6 @@ function updateTimeMap(currentTime) { // the actual code
             name: "of Afternoon Exam"
         },
         {
-            date: new Date(year, month, day, 18, 0),
-            name: "before Evening Exam"
-        },
-        {
-            date: new Date(year, month, day, 20, 0),
-            name: "of Evening Exam"
-        },
-        {
             date: new Date(year, month, day, 22, 0),
             name: "before Check"
         },
