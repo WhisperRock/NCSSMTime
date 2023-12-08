@@ -138,7 +138,7 @@ function updateSchedule() {
         document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left before Check</span>`;
     }
     else { // turn off the text
-        document.getElementById("txt2").innerHTML = `<a href="https://docs.google.com/document/d/1ckqKSNM3A98phR4JNh816zW70jwxQjih2C1IwgWKsR0/edit" target="_blank" class="sub-text" style="color: white; font-size: 32px;">Exam Schedule and Rooms</a>`;
+        document.getElementById("txt2").innerHTML = ``;
 
     }
 
@@ -172,7 +172,7 @@ function getNextEvent(dateTime) { // finds the next event
     let events;
     if (mod) { // override
         events = scheduleMap.get("Modified");
-        document.getElementById("banner").innerText = dayOfWeek(currentTime.getDay()) + ` (Exam Schedule)`; // MODIFY, delete if needed
+        document.getElementById("banner").innerText = "Have a great Winter Break!"; // MODIFY, delete if needed
     }
     else {
         events = scheduleMap.get(day);
@@ -191,33 +191,10 @@ function updateTimeMap(currentTime) { // the actual code
     let month = currentTime.getMonth();
     let day = currentTime.getDate();
     scheduleMap.set("Modified", [{
-            date: new Date(year, month, day, 9, 0),
-            name: "before Morning Exam"
+            date: new Date(2024, 0, 3, 8, 0),
+            name: "before J1"
         },
-        {
-            date: new Date(year, month, day, 11, 0),
-            name: "of Morning Exam"
-        },
-        {
-            date: new Date(year, month, day, 13, 30),
-            name: "of Lunch"
-        },
-        {
-            date: new Date(year, month, day, 15, 30),
-            name: "of Afternoon Exam"
-        },
-        {
-            date: new Date(year, month, day, 22, 0),
-            name: "before Check"
-        },
-        {
-            date: new Date(year, month, day, 22, 5),
-            name: "of Check"
-        },
-        {
-            date: new Date(year, month, day + 1, 9, 0),
-            name: "before Morning Exam"
-        }
+        
     ]);
     scheduleMap.set("Monday", [{
             date: new Date(year, month, day, 8, 30),
