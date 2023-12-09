@@ -3,6 +3,8 @@ let scheduleMap = new Map();
 
 let mod = true;
 /*
+If you are reading this, why hello there! 
+I am writing this because I have to remind myself what to do every time there's a modified schedule
 PROCEDURE
 On modified schedules, change mod to true above
 Add modified schedule to "Modified" schedule map
@@ -251,7 +253,7 @@ function updateTimeMap(currentTime) { // the actual code
         {
             date: new Date(year, month, day, 15, 35),
             name: "of G1"
-        },
+        },/*
         {
             date: new Date(year, month, day, 15, 40),
             name: "of Transition (G1 to Meeting)"
@@ -259,7 +261,7 @@ function updateTimeMap(currentTime) { // the actual code
         {
             date: new Date(year, month, day, 17, 0),
             name: "of Meeting"
-        },
+        },*/
         {
             date: new Date(year, month, day, 18, 15),
             name: "before H1"
