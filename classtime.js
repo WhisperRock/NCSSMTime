@@ -1,4 +1,4 @@
-// J-Term Schedule
+// THIS IS PRIOR TO CHANGING FOR EXAMS AND J-TERM -- THE NORMAL SCHEDULE!
 
 let pageTitle = "";
 let scheduleMap = new Map();
@@ -142,7 +142,7 @@ function updateSchedule() {
         document.getElementById("txt2").innerHTML = `${timeString2}<br><span class="sub-text">Left before Check</span>`;
     }
     else { // turn off the text
-        document.getElementById("txt2").innerHTML = `J1: 1/3 to 1/12<br><span class="sub-text">See <a href="https://ncssm.myschoolapp.com/app/student#myschedule" target="_blank" style="color: white;">Blackbaud</a> for your schedule</span>`;
+        document.getElementById("txt2").innerHTML = `J2: 1/16 to 1/25<br><span class="sub-text">See <a href="https://ncssm.myschoolapp.com/app/student#myschedule" target="_blank" style="color: white;">Blackbaud</a> for your schedule.<br>Safe travels!</span>`;
     }
 
     document.getElementById("txt").innerHTML = `${timeString}<br><span class="sub-text">Left ${nextEvent.name}</span>`; // countdown text that replaces "Loading..."
