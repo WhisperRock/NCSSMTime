@@ -1,7 +1,7 @@
 let pageTitle = "";
 let scheduleMap = new Map();
 
-let mod = false;
+let mod = true;
 /*
 If you are reading this, why hello there! 
 I am writing this because I have to remind myself what to do every time there's a modified schedule
@@ -192,7 +192,7 @@ function updateTimeMap(currentTime) { // the actual code
     let month = currentTime.getMonth();
     let day = currentTime.getDate();
     scheduleMap.set("Modified", [{
-            date: new Date(year, 0, 28, 22, 0),
+            date: new Date(year, 1, 25, 22, 0),
             name: "before Check"
         }
     ]);
