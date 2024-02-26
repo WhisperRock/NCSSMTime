@@ -173,7 +173,7 @@ function getNextEvent(dateTime) { // finds the next event
     let events;
     if (mod) { // override
         events = scheduleMap.get("Modified");
-        document.getElementById("banner").innerText = `Have a great Extended Weekend!`; // MODIFY, delete if needed
+        document.getElementById("banner").innerText = day + ` (Friday Schedule)`; // MODIFY, delete if needed
     }
     else {
         events = scheduleMap.get(day);
@@ -194,6 +194,82 @@ function updateTimeMap(currentTime) { // the actual code
     scheduleMap.set("Modified", [{
             date: new Date(year, 1, 25, 22, 0),
             name: "before Check"
+        },
+        {
+            date: new Date(year, 1, 25, 22, 5),
+            name: "of Check"
+        },
+        {
+            date: new Date(year, 1, 26, 8, 30),
+            name: "before A5"
+        },
+        {
+            date: new Date(year, 1, 26, 9, 20),
+            name: "of A5"
+        },
+        {
+            date: new Date(year, 1, 26, 9, 25),
+            name: "of Transition (A5 to C5)"
+        },
+        {
+            date: new Date(year, 1, 26, 10, 15),
+            name: "of C5"
+        },
+        {
+            date: new Date(year, 1, 26, 10, 20),
+            name: "of Transition (C5 to D5L)"
+        },
+        {
+            date: new Date(year, 1, 26, 11, 50),
+            name: "of D5 and D5 Lab"
+        },
+        {
+            date: new Date(year, 1, 26, 12, 40),
+            name: "of Lunch"
+        },
+        {
+            date: new Date(year, 1, 26, 13, 30),
+            name: "of B5"
+        },
+        {
+            date: new Date(year, 1, 26, 13, 35),
+            name: "of Transition (B5 to E5L)"
+        },
+        {
+            date: new Date(year, 1, 26, 15, 5),
+            name: "of E5 and E5 Lab"
+        },
+        {
+            date: new Date(year, 1, 26, 16, 0),
+            name: "of Flexible Use Time"
+        },
+        {
+            date: new Date(year, 1, 26, 18, 15),
+            name: "before H1"
+        },
+        {
+            date: new Date(year, 1, 26, 19, 55),
+            name: "of H1"
+        },
+        {
+            date: new Date(year, 1, 26, 20, 5),
+            name: "of Transition (H1 to I1)"
+        },
+        {
+            date: new Date(year, 1, 26, 21, 45),
+            name: "of I1"
+        },
+        {
+            date: new Date(year, 1, 26, 22, 0),
+            name: "before Check"
+        },
+        {
+            date: new Date(year, 1, 26, 22, 5),
+            name: "of Check"
+        },
+        {
+            date: new Date(year, 1, 27, 8, 30),
+            name: "before D2"
         }
     ]);
     scheduleMap.set("Monday", [{
